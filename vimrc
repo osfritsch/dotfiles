@@ -1,3 +1,4 @@
+"mooo
 set nocompatible     " be iMproved
 filetype off        " required!
 
@@ -8,13 +9,14 @@ call vundle#rc()
 " required! 
 Bundle 'gmarik/vundle'
 
+" My Bundles
+Bundle 'scrooloose/nerdtree'
+Bundle 'vim-scripts/FuzzyFinder'
+Bundle 'vim-scripts/L9.git'
+
 filetype plugin indent on
 
 let mapleader=',' " mapleader auf Komma gemapt
-
-" autoload NERDtree
-autocmd VimEnter * NERDTree
-"autocmd VimEnter * wincmd p
 
 " use arrow to switch windows
 "nmap <silent> <C-k> :wincmd k<CR>
@@ -22,14 +24,9 @@ autocmd VimEnter * NERDTree
 "nmap <silent> <C-h> :wincmd h<CR>
 "nmap <silent> <C-l> :wincmd l<CR>
 
-" My Bundles
-Bundle 'scrooloose/nerdtree'
-Bundle 'vim-scripts/FuzzyFinder'
-Bundle 'vim-scripts/L9.git'
-
 " FuzzyFinder
-nnoremap <silent> ,t      :FufFileWithCurrentBufferDir<CR>
-nnoremap <silent> ,T      :FufFile **/<CR>
+nnoremap <silent> ,t :FufFileWithCurrentBufferDir<CR>
+nnoremap <silent> ,T :FufFile **/<CR>
 let g:fuf_dir_exclude = '\v(^|[/\\])(\.(hg|git|bzr|svn)|tmp)($|[/\\])'
 let g:fuf_file_exclude = '\v\~$|\.(o|exe|dll|bak|orig|swp)$|(^|[/\\])(\.(hg|git|bzr|svn)|tmp)($|[/\\])'
 
