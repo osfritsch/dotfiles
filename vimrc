@@ -13,6 +13,7 @@ Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
 Bundle 'vim-scripts/FuzzyFinder'
 Bundle 'vim-scripts/L9.git'
+"Bundle 'tpope/vim-rails'
 
 filetype plugin indent on
 
