@@ -13,11 +13,21 @@ Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
 Bundle 'vim-scripts/FuzzyFinder'
 Bundle 'vim-scripts/L9.git'
+Bundle 'mileszs/ack.vim'
+Bundle 'wincent/Command-T'
 "Bundle 'tpope/vim-rails'
+
+" use ack instead of grep
+set grepprg=ack
 
 filetype plugin indent on
 
 let mapleader=',' " mapleader auf Komma gemapt
+map <leader>n :NERDTreeToggle<CR>
+
+" map command-T
+nnoremap <silent> ,t :CommandT<CR>
+
 
 " use arrow to switch windows
 "nmap <silent> <C-k> :wincmd k<CR>
@@ -25,12 +35,15 @@ let mapleader=',' " mapleader auf Komma gemapt
 "nmap <silent> <C-h> :wincmd h<CR>
 "nmap <silent> <C-l> :wincmd l<CR>
 
-" FuzzyFinder
-nnoremap <silent> ,t :FufFileWithCurrentBufferDir<CR>
-nnoremap <silent> ,T :FufFile **/<CR>
-let g:fuf_dir_exclude = '\v(^|[/\\])(\.(hg|git|bzr|svn)|tmp)($|[/\\])'
-let g:fuf_file_exclude = '\v\~$|\.(o|exe|dll|bak|orig|swp)$|(^|[/\\])(\.(hg|git|bzr|svn)|tmp)($|[/\\])'
+" Search for the string marked in visual mode. E.g.: press v, go some chars to the right, press /
+vmap / y/<C-R>"<CR>
+vmap ß y:Ack <C-R>"<CR>
 
+" FuzzyFinder
+"nnoremap <silent> ,t :FufFileWithCurrentBufferDir<CR>
+"nnoremap <silent> ,T :FufFile **/<CR>
+"let g:fuf_dir_exclude = '\v(^|[/\\])(\.(hg|git|bzr|svn)|tmp)($|[/\\])'
+"let g:fuf_file_exclude = '\v\~$|\.(o|exe|dll|bak|orig|swp)$|(^|[/\\])(\.(hg|git|bzr|svn)|tmp)($|[/\\])'
 
 " some visual helpers
 set number
@@ -42,7 +55,8 @@ let g:solarized_contrast="high"
 let g:solarized_visibility="high"
 let g:solarized_hitrail=1
 let g:solarized_termtrans=1
-colorscheme solarized
+"colorscheme solarized
+colorscheme ir_black
 set background=dark
 
 set mouse=a
@@ -54,6 +68,7 @@ set scrolloff=4 "Minimum lines around cursor
 set showmatch "Passende Klammern anzeigen
 set ts=2 "Tabstop-Groesse
 set softtabstop=2 "Number of spaces for tabs
+set expandtab
 set autoindent "always autoindenting
 set shiftwidth=2 "number of spaces for each autoindent
 set noedcompatible
